@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>For Poonam 💖</title>
 
-  <!-- Google Font -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
   <style>
@@ -47,32 +47,33 @@
 
     .button-box {
       position: relative;
-      height: 120px;
+      height: 130px;
       margin-top: 25px;
     }
 
     button {
-      padding: 12px 26px;
+      position: absolute;
+      width: 120px;
+      height: 46px;
       border-radius: 30px;
       border: none;
       font-size: 1.1rem;
       cursor: pointer;
-      transition: all 0.3s ease;
-      position: absolute;
+      transition: left 0.25s ease, top 0.25s ease;
     }
 
     #yes {
       background: #e63946;
       color: white;
       left: 40px;
-      bottom: 20px;
+      top: 70px;
     }
 
     #no {
       background: #adb5bd;
       color: white;
-      right: 40px;
-      bottom: 20px;
+      left: 220px;   /* START POSITION */
+      top: 70px;
     }
 
     /* LOVE PAGE */
@@ -148,17 +149,19 @@
     const love = document.getElementById("lovePage");
 
     noBtn.addEventListener("mouseenter", () => {
-      const boxRect = box.getBoundingClientRect();
-      const btnRect = noBtn.getBoundingClientRect();
+      const boxWidth = box.clientWidth;
+      const boxHeight = box.clientHeight;
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
 
-      const maxX = boxRect.width - btnRect.width;
-      const maxY = boxRect.height - btnRect.height;
+      const maxX = boxWidth - btnWidth;
+      const maxY = boxHeight - btnHeight;
 
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
 
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
     });
 
     yesBtn.addEventListener("click", () => {
